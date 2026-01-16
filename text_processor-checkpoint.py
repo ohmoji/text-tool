@@ -2,7 +2,7 @@ import streamlit as st
 import re
 
 # ==============================================================================
-# 1. 텍스트 처리 핵심 로직 함수
+# 1. 텍스트 처리 
 # ==============================================================================
 def parse_and_process_text(input_text, use_prefix, script_prefix, dialogue_prefix):
     
@@ -36,7 +36,8 @@ def parse_and_process_text(input_text, use_prefix, script_prefix, dialogue_prefi
         p = p.strip()
         if not p:
             continue
-            
+        p = re.sub(r'\s*(\[\[DIALOGUE_\d+\]\])\s*', r'\n\1\n', p)
+        
         if re.match(r'\[\[DIALOGUE_\d+\]\]', p):
             final_output_lines.append(dialogue_map.get(p, p))
             continue
