@@ -79,7 +79,7 @@ def main():
     1.  **스크립트 (Script):** 일반 문장은 문장 기호를 기준으로 줄바꿈됩니다. 
     2.  **대사 (Dialogue):** `이름 : "문장"`, `이름 : 문장` 형태는 `!!이름 문장` 형태로 치환되며 중간에 줄바꿈되지 않습니다.
     3. Prefix를 활성화하고 스크립트 앞에 `!... /desc `, `/desc`, 대사 앞에 `!... ` 등을 넣어 활용하시면 됩니다. (롤20에서 사용 시 Prefix 맨 뒤 공백 필수)
-    *양천일염 님의 롤20 API as_autofiller.js (`https://kibkibe.github.io/roll20/`) 명령어 사용을 가정하고 대사 처리하였습니다.*
+    \n*양천일염 님의 롤20 API as_autofiller.js (`https://kibkibe.github.io/roll20/`) 명령어 사용을 가정하고 대사 처리하였습니다.*
     """)
 
     # --- (Prefix) ---
