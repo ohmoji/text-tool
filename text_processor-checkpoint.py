@@ -7,7 +7,7 @@ import re
 def parse_and_process_text(input_text, use_prefix, script_prefix, dialogue_prefix):
     
     # 대사 패턴 정규식: "이름 : "문장"" 
-    dialogue_pattern = r'([\w\s\(\)]+?)\s*:\s*["“”]?(.*?)["“”]?'
+    dialogue_pattern = r'([\w\s\(\)]+?)\s*:\s*["“”]?(.*?)["“”]?(?=\n|$|\[\[META)'
     
     dialogue_map = {}
     dialogue_counter = 0
@@ -17,7 +17,8 @@ def parse_and_process_text(input_text, use_prefix, script_prefix, dialogue_prefi
         name, text = match.groups()
         token = f"[[DIALOGUE_{dialogue_counter}]]"
         
-        dialogue_line = f"!!{name.strip()} {text.strip()}"
+        clean_text = text.strip().strip('"“”')
+        dialogue_line = f"!!{name.strip()} {clean_text}"
         
         if use_prefix:
             dialogue_line = f"{dialogue_prefix}{dialogue_line}"
